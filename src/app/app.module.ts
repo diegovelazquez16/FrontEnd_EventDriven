@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

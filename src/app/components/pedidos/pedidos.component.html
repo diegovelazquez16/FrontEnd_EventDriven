@@ -1,10 +1,36 @@
-<div>
-    <h2>Realizar Pedido</h2>
-    <input type="text" placeholder="Producto 1" [(ngModel)]="pedido.producto1" />
-    <input type="text" placeholder="Producto 2" [(ngModel)]="pedido.producto2" />
-    <input type="text" placeholder="Producto 3" [(ngModel)]="pedido.producto3" />
-    <input type="hidden" name="PagoID" value="0">
-    <button (click)="hacerPedido()">Hacer Pedido</button>
-    <p>{{ mensaje }}</p>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-96">
+    <h2 class="text-2xl font-bold text-gray-700 text-center mb-6">Realizar Pedido</h2>
+
+    <form (ngSubmit)="hacerPedido()" class="space-y-4">
+      <div>
+        <label class="block text-gray-600">Producto 1</label>
+        <input type="text" placeholder="Producto 1" [(ngModel)]="pedido.producto1" name="producto1" 
+          class="w-full px-4 py-2 mt-2 border rounded-lg focus:ring focus:ring-indigo-300">
+      </div>
+
+      <div>
+        <label class="block text-gray-600">Producto 2</label>
+        <input type="text" placeholder="Producto 2" [(ngModel)]="pedido.producto2" name="producto2" 
+          class="w-full px-4 py-2 mt-2 border rounded-lg focus:ring focus:ring-indigo-300">
+      </div>
+
+      <div>
+        <label class="block text-gray-600">Producto 3</label>
+        <input type="text" placeholder="Producto 3" [(ngModel)]="pedido.producto3" name="producto3" 
+          class="w-full px-4 py-2 mt-2 border rounded-lg focus:ring focus:ring-indigo-300">
+      </div>
+
+      <input type="hidden" [(ngModel)]="pedido" name="PagoID" value="1">
+
+      <button type="submit"
+        class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+        Hacer Pedido
+      </button>
+    </form>
+
+    <p *ngIf="mensaje" class="mt-4 text-sm text-gray-700 text-center">
+      {{ mensaje }}
+    </p>
   </div>
-  
+</div>
