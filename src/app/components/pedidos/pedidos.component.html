@@ -1,0 +1,10 @@
+<div>
+    <h2>Realizar Pedido</h2>
+    <input type="text" placeholder="Producto 1" [(ngModel)]="pedido.producto1" />
+    <input type="text" placeholder="Producto 2" [(ngModel)]="pedido.producto2" />
+    <input type="text" placeholder="Producto 3" [(ngModel)]="pedido.producto3" />
+    <input type="hidden" name="PagoID" value="0">
+    <button (click)="hacerPedido()">Hacer Pedido</button>
+    <p>{{ mensaje }}</p>
+  </div>
+  
