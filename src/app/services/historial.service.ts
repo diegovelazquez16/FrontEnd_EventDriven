@@ -1,18 +1,32 @@
-// src/app/services/historial.service.ts
+// historial.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Historial } from '../entities/historial';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+
+export interface Historial {
+  id: number;
+  estado: string;
+}
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class HistorialService {
-  private apiUrl = 'http://localhost:8080/historial'; // Ajusta a tu URL real
+  private apiUrl = 'http://localhost:8080/historial'; // Asegurate que este endpoint sea correcto
 
   constructor(private http: HttpClient) {}
 
-  getHistorial(): Observable<Historial[]> {
-    return this.http.get<Historial[]>(this.apiUrl);
-  }
+  obtenerHistorial(): Observable<Historial[]> {
+  return this.http.get<any[]>(this.apiUrl).pipe(
+    map((res) =>
+      res.map(item => ({
+        id: item.ID,
+        estado: item.Estado
+      }))
+    )
+  );
+}
+
 }

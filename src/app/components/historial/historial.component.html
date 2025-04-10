@@ -1,22 +1,9 @@
-<!-- src/app/components/historial/historial.component.html -->
-<div class="min-h-screen bg-gray-100 flex items-center justify-center">
-    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-2xl">
-      <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Historial de Pedidos</h2>
+<div class="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Historial de Pedidos</h2>
   
-      <div *ngIf="mensaje" class="text-red-500 text-center mb-4">
-        {{ mensaje }}
-      </div>
-  
-      <ul class="divide-y divide-gray-200">
-        <li *ngFor="let item of historial" class="py-4 px-2">
-          <span class="font-semibold text-gray-700">Pedido ID:</span> {{ item.id }}<br />
-          <span class="text-sm text-gray-500">Estado:</span> {{ item.estado }}
-        </li>
-      </ul>
-  
-      <div *ngIf="historial.length === 0 && !mensaje" class="text-center text-gray-500">
-        No hay historial disponible.
-      </div>
+    <div *ngFor="let pedido of historialPedidos" class="mb-4 border-b pb-4">
+      <p class="font-semibold">Pedido ID: {{ pedido.id }}</p>
+      <p class="text-gray-600">Estado: {{ pedido.estado }}</p>
     </div>
   </div>
   
